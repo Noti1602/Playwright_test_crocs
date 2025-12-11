@@ -29,20 +29,15 @@ jobs:
       - name: Install Playwright Browsers
         run: npx playwright install --with-deps
 
-      # 🔥 ТВОЯ КОМАНДА ТЕСТОВ
-      # Репортеры НЕ указываем здесь, они должны быть в playwright.config.js
+      # ТВОЯ команда тестов
       - name: Run Playwright logged-in search test
         run: npx playwright test tests/search-loggedin.spec.js
-
-      # (Опционально) посмотреть, что результаты Allure действительно есть
-      - name: List Allure results
-        if: always()
-        run: ls -R ./allure-results || echo "⚠️ No allure-results found"
 
       - name: Generate Allure Report
         if: always()
         run: npx allure generate ./allure-results --clean -o ./allure-report
 
+      # ⭐ Новый upload-artifact — v4
       - name: Upload Allure Report as Artifact
         if: always()
         uses: actions/upload-artifact@v4
@@ -50,7 +45,7 @@ jobs:
           name: allure-report
           path: ./allure-report
 
-      # ⭐ Публикация в GitHub Pages ⭐
+      # ⭐ Для GitHub Pages используется upload-pages-artifact (он актуальный)
       - name: Upload report for GitHub Pages
         if: always()
         uses: actions/upload-pages-artifact@v2
