@@ -44,7 +44,7 @@ jobs:
 
       # ⭐ GitHub Pages artifact (ONLY THIS ONE gets deployed)
       - name: Upload report for GitHub Pages
-        uses: actions/upload-pages-artifact@v2
+        uses: actions/upload-pages-artifact@v4
         with:
           path: allure-report
 
@@ -61,4 +61,4 @@ jobs:
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v2
+        uses: actions/deploy-pages@v4
