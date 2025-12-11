@@ -1,0 +1,18 @@
+{
+  "name": "Playwright_test_crocs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test1:auth": "npx playwright test tests/auth.spec.js",
+    "test2:search-loggedin": "npx playwright test tests/search-loggedin.spec.js",
+    "ui": "playwright test --ui"
+  },
+  "private": true,
+  "devDependencies": {
+    "@playwright/test": "^1.57.0",
+    "@types/node": "^24.10.2",
+    "allure-commandline": "^2.35.1",
+    "allure-playwright": "^3.4.3"
+  }
+}
